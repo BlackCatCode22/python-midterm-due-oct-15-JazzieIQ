@@ -28,6 +28,7 @@ def main():
     lion_habitat = []
     tiger_habitat = []
     bear_habitat = []
+    
     habs = [None] * 4
     hyenas = [None] * 13
     lions = [None] * 13
@@ -38,12 +39,12 @@ def main():
     print("I will be using the info below:\n")
 
     try:
-        with open("animalNames.txt", "r") as animal_names_file:
+        with open(r"animalNames.txt", "r") as animal_names_file:
             names = animal_names_file.read()
             names = names.replace("Names:\n", "Habitat: ").replace("Ryker\n", "Ryker")
             print(names + "\n")
 
-        with open("arrivingAnimals.txt", "r") as arriving_animals_file:
+        with open(r"arrivingAnimals.txt", "r") as arriving_animals_file:
             animals = arriving_animals_file.readlines()
             print("New Animals to the Following Habitats.\n")
             for animal in animals[:16]:
@@ -71,9 +72,10 @@ def main():
             data = names.replace(": \n", ", ").replace("\n\n", ", ").split(",", 52)
             print(data)
             print("\n")
-            for j in range(13):
+
+            for j in range(12):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
-                    if data[j] == "Hyena Habitat":
+                    if data[j].strip() == "Hyena Habitat":
                         habs[0] = data[j]
                     else:
                         hyenas[j] = data[j]
@@ -85,7 +87,7 @@ def main():
 
             for j in range(13, 26):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
-                    if data[j] == "Lion Habitat":
+                    if data[j].strip() == "Lion Habitat":
                         habs[1] = data[j]
                     else:
                         lions[j - 13] = data[j]
@@ -97,7 +99,7 @@ def main():
 
             for j in range(26, 39):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
-                    if data[j] == "Bear Habitat":
+                    if data[j].strip() == "Bear Habitat":
                         habs[2] = data[j]
                     else:
                         bears[j - 26] = data[j]
@@ -109,7 +111,7 @@ def main():
 
             for j in range(39, 49):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
-                    if data[j] == "Tiger Habitat":
+                    if data[j].strip() == "Tiger Habitat":
                         habs[3] = data[j]
                     else:
                         tigers[j - 39] = data[j]
