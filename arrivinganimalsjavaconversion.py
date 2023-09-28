@@ -76,7 +76,7 @@ def main():
             for j in range(12):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
                     if data[j].strip() == "Hyena Habitat":
-                        habs[0] = data[j]
+                        habs[0] = data[j].strip()
                     else:
                         hyenas[j] = data[j]
 
@@ -85,10 +85,10 @@ def main():
                 if hyenas[j] is not None:
                     print(hyenas[j])
 
-            for j in range(13, 26):
+            for j in range(12, 25):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
                     if data[j].strip() == "Lion Habitat":
-                        habs[1] = data[j]
+                        habs[1] = data[j].strip()
                     else:
                         lions[j - 13] = data[j]
 
@@ -97,10 +97,10 @@ def main():
                 if lions[j - 13] is not None:
                     print(lions[j - 13])
 
-            for j in range(26, 39):
+            for j in range(25, 36):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
                     if data[j].strip() == "Bear Habitat":
-                        habs[2] = data[j]
+                        habs[2] = data[j].strip()
                     else:
                         bears[j - 26] = data[j]
 
@@ -109,10 +109,10 @@ def main():
                 if bears[j - 26] is not None:
                     print(bears[j - 26])
 
-            for j in range(39, 49):
+            for j in range(36, 47):
                 if j < len(data):  # Add this check to prevent accessing invalid indices
                     if data[j].strip() == "Tiger Habitat":
-                        habs[3] = data[j]
+                        habs[3] = data[j].strip()
                     else:
                         tigers[j - 39] = data[j]
 
@@ -140,7 +140,7 @@ def main():
                     unique_id = gen_unique_id(species, num_of_hyenas)
                     animal = {
                         "id": unique_id,
-                        "name": hyenas[num_of_hyenas - 1],
+                        "name": hyenas[num_of_hyenas],
                         "birthday": birthdate,
                         "color": color.replace(" ", ""),
                         "sex": sex.replace(" ", ""),
